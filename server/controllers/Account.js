@@ -4,12 +4,12 @@ const { AccountModel } = require('../models/Account');
 const { Account } = models;
 
 const loginPage = (req, res) => {
-  //console.log(req.csrfToken());
-  res.render('login', { csrfToken: /*req.csrfToken()*/ "h" });
+  // console.log(req.csrfToken());
+  res.render('login', { csrfToken: /* req.csrfToken() */ 'h' });
 };
 
 const signupPage = (req, res) => {
-  res.render('signup', { csrfToken: /*req.csrfToken()*/ "h" });
+  res.render('signup', { csrfToken: /* req.csrfToken() */ 'h' });
 };
 
 const logout = (req, res) => {
