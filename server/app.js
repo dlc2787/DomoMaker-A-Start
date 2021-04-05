@@ -50,6 +50,7 @@ const redisClient = redis.createClient({
 
 // connect router
 const router = require('./router.js');
+const { runInNewContext } = require('vm');
 
 // app setup
 const app = express();
@@ -77,14 +78,16 @@ app.set('views', `${__dirname}/../views`);
 app.disable('x-powered-by');
 app.use(cookieParser());
 
-//CSRF goes between session/ cookie parser and router
+// CSRF goes between session/ cookie parser and router
+/*
 app.use(csrf());
 app.use((err, req, res, next) => {
+  console.log(req.csrfToken());
   if (err.code !== 'EBADCSRFTOKEN') return next(err);
-  
-  console.log('Missing CSRF token');
+  console.log('Bad CSRF token');
   return false;
 });
+*/
 
 // hookup router
 router(app);
