@@ -5,11 +5,11 @@ const { Account } = models;
 
 const loginPage = (req, res) => {
   // console.log(req.csrfToken());
-  res.render('login', { csrfToken: /* req.csrfToken() */ 'h' });
+  res.render('login', { csrfToken: req.csrfToken() });
 };
 
 const signupPage = (req, res) => {
-  res.render('signup', { csrfToken: /* req.csrfToken() */ 'h' });
+  res.render('signup', { csrfToken: req.csrfToken() });
 };
 
 const logout = (req, res) => {

@@ -10,7 +10,7 @@ const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const url = require('url');
 const redis = require('redis');
-//const csrf = require('csurf');
+const csrf = require('csurf');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
@@ -78,7 +78,7 @@ app.disable('x-powered-by');
 app.use(cookieParser());
 
 // CSRF goes between session/ cookie parser and router
-/*
+
 app.use(csrf());
 app.use((err, req, res, next) => {
   console.log(req.csrfToken());
@@ -86,7 +86,6 @@ app.use((err, req, res, next) => {
   console.log('Bad CSRF token');
   return false;
 });
-*/
 
 // hookup router
 router(app);
