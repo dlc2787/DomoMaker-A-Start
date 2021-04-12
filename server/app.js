@@ -81,7 +81,6 @@ app.use(cookieParser());
 
 app.use(csrf());
 app.use((err, req, res, next) => {
-  console.log(req.csrfToken());
   if (err.code !== 'EBADCSRFTOKEN') return next(err);
   console.log('Bad CSRF token');
   return false;
